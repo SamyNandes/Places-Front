@@ -1,0 +1,69 @@
+{
+  "categorias": [
+    {
+      "id": "c1",
+      "nome": "Praia",
+      "descricao": "Lugares litorâneos com paisagens deslumbrantes, areia fina e águas cristalinas."
+    },
+    {
+      "id": "c2",
+      "nome": "Shopping",
+      "descricao": "Centros comerciais modernos com lojas, gastronomia e entretenimento para todas as idades."
+    },
+    {
+      "id": "c3",
+      "nome": "Academia",
+      "descricao": "Espaços dedicados à prática de atividades físicas e bem-estar corporal e mental."
+    }
+  ],
+  "lugares": [
+    {
+      "id": "l1",
+      "nome": "Praia das Conchas",
+      "categoria": "Praia",
+      "localizacao": "Búzios, RJ",
+      "urlFoto": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "avaliacao": "4"
+    },
+    {
+      "id": "l2",
+      "nome": "Shopping Aurora",
+      "categoria": "Shopping",
+      "localizacao": "Londrina, PR",
+      "urlFoto": "https://images.unsplash.com/photo-1533481405265-e9ce0c044abb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "avaliacao": "4"
+    },
+    {
+      "id": "l3",
+      "nome": "Academia IronFit",
+      "categoria": "Academia",
+      "localizacao": "São Paulo, SP",
+      "urlFoto": "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
+      "avaliacao": "4"
+    },
+    {
+      "id": "l4",
+      "nome": "Praia do Sossego",
+      "categoria": "Praia",
+      "localizacao": "Ilha de Itamaracá, PE",
+      "urlFoto": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+      "avaliacao": "4"
+    },
+    {
+      "id": "l5",
+      "nome": "Shopping VistaMar",
+      "categoria": "Shopping",
+      "localizacao": "Santos, SP",
+      "urlFoto": "https://images.unsplash.com/photo-1533481405265-e9ce0c044abb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "avaliacao": "4"
+    },
+    {
+      "id": "l6",
+      "nome": "Studio Zen Fitness",
+      "categoria": "Academia",
+      "localizacao": "Florianópolis, SC",
+      "urlFoto": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+      "avaliacao": "4"
+    }
+  ]
+}

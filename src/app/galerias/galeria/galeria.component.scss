@@ -1,0 +1,9 @@
+.example-card {
+  max-width: 400px;
+}
+
+.imagem-lugar {
+  width: 500px;
+  height: 200px;
+  object-fit: cover; // ou "contain", dependendo do efeito que quiser
+}

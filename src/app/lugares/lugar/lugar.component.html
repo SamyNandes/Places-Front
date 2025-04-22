@@ -1,0 +1,39 @@
+<div class="shadow-md max-auto p-6 flex items-center justify-center content-center my-5 border-t flex-col">
+  <h1 class="text-2xl mb-5">Envie seu local!</h1>
+  <form class="border-2 flex flex-col w-1/2 shadow-md p-4 rounded-md" [formGroup]="dadosDoFormsLugares" (ngSubmit)="salvarDadosFormsLugares()">
+    <div class="flex flex-col gap-3 my-5">
+      <label for="nome" class="text-[1.2rem]"> Nome do lugar </label>
+      <input id="nome" placeholder="Ex: Praia de Riviera, Bar do seu zé... " formControlName="nome" class="px-2 border-2 h-10 border-gray-500 rounded" type="text" required>
+    </div>
+    <div class="flex flex-col gap-3 my-5">
+      <label for="categorias" class="text-[1.2rem]"> Categorias </label>
+        <select class="px-2 border-2 h-10 border-gray-500 rounded" name="categorias" id="categorias" formControlName="categorias">
+          <option *ngFor="let cat of categorias" [value]='cat.nome'>{{ cat.nome }}</option>
+        </select>
+    </div>
+    <div class="flex flex-col gap-3 my-5">
+      <label for="localizacao" class="text-[1.2rem]"> Localização </label>
+      <input id="localizacao" name="localizacao" class="px-2 border-2 h-10 border-gray-500 rounded" formControlName="localizacao" placeholder="Ex: São Paulo, Bahia..." type="text">
+    </div>
+    <div class="flex flex-col gap-3 my-5">
+      <label for="foto" class="text-[1.2rem]"> Foto </label>
+      <input id="foto" name="foto" class="px-2 border-2 h-10 border-gray-500 rounded" formControlName="foto" type="text" placeholder="Ex: URL da foto">
+    </div>
+    <div class="flex flex-col gap-3 my-5">
+      <label for="avaliacao" class="text-[1.2rem]"> Avaliação </label>
+      <select class="px-2 border-2 h-10 border-gray-500 rounded" formControlName="avaliacao" name="avaliacao" id="avaliacao">
+        <option [value]="1">1 - Muito ruim</option>
+        <option [value]="2">2 - Ruim</option>
+        <option [value]="3">3 - Ok</option>
+        <option [value]="4">4 - Bom</option>
+        <option [value]="5">5 - Muito bom</option>
+      </select>
+
+
+    </div>
+      <div class="flex justify-center  h-[2rem]">
+        <button type="submit" class=" hover:bg-azulMenosForte bg-azulForte rounded-md w-full text-white">Enviar dados</button>
+      </div>
+
+  </form>
+  </div>

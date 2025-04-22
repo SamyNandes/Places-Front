@@ -1,0 +1,24 @@
+<div class="shadow-md max-auto p-6 flex items-center justify-center content-center my-5 border-t flex-col">
+<h1 class="text-2xl mb-5">Envie sua descrição!</h1>
+<form class="border-2 flex flex-col w-3/4 shadow-md p-4 rounded-md" [formGroup]="dadosForms" (ngSubmit)="mostrarConsolelog()">
+    <label for="categoria" class="my-4 text-lg">Selecione a categoria </label>
+    <select name="nome" id="nome" class="border-2 border-azulMenosForte rounded-md w-1/2"  formControlName="nome" required>
+      <option value="Praia">Praia</option>
+      <option value="Shopping">Shopping</option>
+      <option value="Restaurantes">Restaurantes</option>
+      <option value="Cafeterias">Cafeterias</option>
+      <option value="Academias">Academias</option>
+      <option value="Cinemas">Cinemas</option>
+      <option value="Bares">Bares</option>
+      <option value="Livrarias">Livrarias</option>
+    </select>
+    <span *ngIf="campoObrigatorioInvalido('categoria')" class="text-red-500">Campo Invalido!</span>
+    <label for="categoria" class="my-4 text-lg">Faça uma descrição 😍 </label>
+    <textarea formControlName="descricao" name="descricao" class="h-96 rounded-md border-2 border-azulMenosForte" required id=""></textarea>
+    <span *ngIf="campoObrigatorioInvalido('descricao')" class="text-red-500">Campo Invalido!</span>
+    <div class=" flex justify-center m-5">
+      <button type="submit" class="hover:bg-azulMenosForte bg-azulForte rounded-md p-5 w-1/3 text-white">Enviar dados</button>
+    </div>
+
+</form>
+</div>
