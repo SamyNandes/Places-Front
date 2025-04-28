@@ -2,29 +2,48 @@
   <div class="flex justify-center w-full gap-5 p-5 my-5">
     <div class="flex flex-col w-full">
       <label for="nomeDoLugar">Nome do lugar</label>
-      <input id="nomeDoLugar" name="nomeDoLugar" type="text" class=" px-2 border-2 h-10  border-gray-500 rounded" placeholder="Ex: Praia de Riviera, Bar do seu zé...">
+      <input id="nomeDoLugar" name="nomeDoLugar" [(ngModel)]="pesquisarNomeLocal" type="text" class=" px-2 border-2 h-10  border-gray-500 rounded" placeholder="Ex: Praia de Riviera, Bar do seu zé...">
     </div>
     <div class="flex flex-col w-full">
       <label for="categorias"> Categorias </label>
-      <select class="px-2 border-2 h-10  border-gray-500 rounded" name="categorias" id="categorias" formControlName="categorias">
+      <select class="px-2 border-2 h-10  border-gray-500 rounded" [(ngModel)]="pesquisarCategoria" name="categorias" id="categorias">
         <option *ngFor="let cat of Categorias" [value]='cat.nome'>{{ cat.nome }}</option>
       </select>
     </div>
     <div class="flex items-center justify-center w-[10rem] example-button-container">
-      <button mat-fab extended><mat-icon>search</mat-icon> Basic</button>
+      <button mat-fab extended (click)="procurarLocal()"><mat-icon>search</mat-icon> Basic</button>
     </div>
   </div>
   <div class="flex flex-wrap gap-5 justify-center">
-    <mat-card *ngFor="let lugar of Lugares" class="example-card" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title><p>{{ lugar.nome }}</p></mat-card-title>
-        <mat-card-subtitle>{{ lugar.categoria }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="lugar.urlFoto" class="imagem-lugar" />
-      <mat-card-content class="mt-5">
-        <p>Localização: {{ lugar.localizacao }}</p>
-        <p>⭐ {{ lugar.avaliacao }}</p>
-      </mat-card-content>
-    </mat-card>
+    <div *ngIf="estadoPesquisa; else blocoElse" class="flex flex-wrap gap-5 justify-center">
+      <mat-card *ngFor="let lugar of Lugares" class="example-card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title><p>{{ lugar.nome }}</p></mat-card-title>
+          <mat-card-subtitle>{{ lugar.categoria }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="lugar.urlFoto" class="imagem-lugar" />
+        <mat-card-content class="mt-5">
+          <p>Localização: {{ lugar.localizacao }}</p>
+          <p [innerHTML]="trocarEstrelas(lugar)"></p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <ng-template #blocoElse>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title >
+            <mat-icon>
+              error
+            </mat-icon>
+            Ops!
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Ocorreu um erro. Por favor, procure novamente.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
   </div>
 </div>

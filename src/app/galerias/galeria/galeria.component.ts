@@ -13,6 +13,10 @@ import { CategoriaService } from '../../categorias/categoria.service';
 export class GaleriaComponent implements OnInit{
   Categorias: Categoria[] = []
   Lugares: Lugar[] = []
+  pesquisarNomeLocal: string = ""
+  pesquisarCategoria: string = ""
+  novoLugar: Lugar[] = []
+  estadoPesquisa: Boolean = true;
   constructor(private serviceLugares: LugarService, private categoriaServices: CategoriaService){}
   ngOnInit(): void {
     this.serviceLugares.obterTodos().subscribe(
@@ -20,6 +24,28 @@ export class GaleriaComponent implements OnInit{
     )
     this.categoriaServices.obterTodasCategorias().subscribe(
       y => this.Categorias = y
+    )
+  }
+
+  trocarEstrelas(lugar: Lugar){
+    const avaliacaoNumero = parseInt(lugar.avaliacao!)
+    const avaliacaoNumeroEstrelaVazia = 5 - avaliacaoNumero
+    return '&#9733'.repeat(avaliacaoNumero) + '&#9734;'.repeat(avaliacaoNumeroEstrelaVazia)
+  }
+  procurarLocal(){
+    if(this.pesquisarCategoria == "" && this.pesquisarNomeLocal == ""){
+      this.estadoPesquisa = false
+    }
+    this.serviceLugares.obterLugaresEspecificos(this.pesquisarNomeLocal, this.pesquisarCategoria).subscribe(
+      x =>{
+        this.Lugares = x
+        if(this.Lugares.length == 0){
+          this.estadoPesquisa = false
+          console.log("bucetona")
+        } else {
+          this.estadoPesquisa = true
+        }
+      }
     )
   }
 }
