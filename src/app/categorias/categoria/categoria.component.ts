@@ -20,7 +20,6 @@ constructor(private service: CategoriaService){
 mostrarConsolelog(){
   if(this.dadosForms.valid){
     this.service.salvarCategoria(this.dadosForms.value).subscribe( x => {
-      console.log(x)
     })
   }
 }

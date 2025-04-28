@@ -4,7 +4,7 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient } from '@angular/common/http';
-
+import { provideOAuthClient } from 'angular-oauth2-oidc'
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +15,8 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   providers: [
     provideClientHydration(withEventReplay()),
-    provideHttpClient()
+    provideHttpClient(),
+    provideOAuthClient()
   ],
   bootstrap: [AppComponent]
 })

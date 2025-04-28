@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LayoutProps } from './layoutprops';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
-
+import { AuthgoogleService } from '../../authgoogle.service'
 @Component({
   selector: 'app-layout',
   standalone: false,
@@ -13,6 +13,7 @@ export class LayoutComponent implements OnInit {
 props: LayoutProps = { titulo: "", subTitulo: ""}
 
 constructor(
+  private serviceAuth: AuthgoogleService,
   private router: Router,
   private activatedRoute: ActivatedRoute
 ){}
@@ -22,6 +23,10 @@ ngOnInit(): void {
       filter( () => this.activatedRoute.firstChild !== null ),
       map( () => this.obterPropriedadeLayout() )
     ).subscribe((props: LayoutProps) => this.props = props )
+}
+
+sair(){
+  this.serviceAuth.logout()
 }
 
 obterPropriedadeLayout() : LayoutProps {

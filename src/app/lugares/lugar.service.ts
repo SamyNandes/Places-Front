@@ -11,7 +11,6 @@ export class LugarService {
 
   salvarLugar(lugarParaSalvar: Lugar){
     this.http.post(this.url, lugarParaSalvar).subscribe( x => {
-      console.log("Dados salvos!", x)
     })
   }
   obterTodos(): Observable<Lugar[]>{

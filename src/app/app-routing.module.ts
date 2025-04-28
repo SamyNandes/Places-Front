@@ -1,15 +1,16 @@
   import { NgModule } from '@angular/core';
   import { RouterModule, Routes } from '@angular/router';
-import { LandingPagesModule } from './landing-pages/landing-pages.module';
+import { authGuard } from './auth.guard';
 
   const routes: Routes = [
     {
       path: 'paginas',
-      loadChildren: () => import('./template/template.module').then(x => x.TemplateModule)
+      loadChildren: () => import('./template/template.module').then(m => m.TemplateModule),
+      canActivate: [authGuard]
     },
     {
       path: '',
-      loadChildren: () => import('./landing-pages/landing-pages.module').then(x => x.LandingPagesModule)
+      loadChildren: () => import('./landing-pages/landing-pages.module').then(m => m.LandingPagesModule)
     }
   ];
 
